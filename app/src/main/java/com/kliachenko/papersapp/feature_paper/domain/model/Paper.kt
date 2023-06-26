@@ -18,3 +18,5 @@ data class Paper(
         val paperColors = listOf(RedOrange, LightGreen, Violet, BabyBlue, RedPink)
     }
 }
+
+class InvalidPaperException(message: String): Exception(message)
