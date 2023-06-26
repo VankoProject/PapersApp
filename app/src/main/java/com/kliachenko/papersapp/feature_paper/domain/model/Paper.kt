@@ -12,6 +12,7 @@ data class Paper(
     val title: String,
     val content: String,
     val timestamp: Long,
+    val color: Int,
 ) {
     companion object {
         val paperColors = listOf(RedOrange, LightGreen, Violet, BabyBlue, RedPink)
