@@ -9,18 +9,18 @@ class PaperRepositoryImpl(
     private val dao: PaperDao
 ): PaperRepository{
     override fun getPapers(): Flow<List<Paper>> {
-        TODO("Not yet implemented")
+        return dao.getNotes()
     }
 
     override suspend fun getPaperById(id: Int): Paper? {
-        TODO("Not yet implemented")
+        return dao.getPaperById(id)
     }
 
     override suspend fun insertPaper(paper: Paper) {
-        TODO("Not yet implemented")
+        dao.insertPaper(paper)
     }
 
     override suspend fun deletePaper(paper: Paper) {
-        TODO("Not yet implemented")
+        dao.deletePaper(paper)
     }
 }
