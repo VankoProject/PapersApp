@@ -1,4 +1,4 @@
-package com.kliachenko.papersapp
+package com.kliachenko.papersapp.feature_paper.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
