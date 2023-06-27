@@ -10,7 +10,7 @@ interface PaperDao {
     @Query("SELECT * FROM paper")
     fun getNotes(): Flow<List<Paper>>
 
-    @Query("SELECT * FROM paper WHERE id =: id")
+    @Query("SELECT * FROM paper WHERE id =:id")
     suspend fun getPaperById(id: Int): Paper?
 
     @Insert (onConflict = OnConflictStrategy.REPLACE)
