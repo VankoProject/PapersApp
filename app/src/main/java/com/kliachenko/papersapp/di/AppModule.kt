@@ -5,10 +5,7 @@ import androidx.room.Room
 import com.kliachenko.papersapp.feature_paper.data.data_source.PaperDatabase
 import com.kliachenko.papersapp.feature_paper.data.repository.PaperRepositoryImpl
 import com.kliachenko.papersapp.feature_paper.domain.repository.PaperRepository
-import com.kliachenko.papersapp.feature_paper.domain.use_case.AddPaper
-import com.kliachenko.papersapp.feature_paper.domain.use_case.DeletePaper
-import com.kliachenko.papersapp.feature_paper.domain.use_case.GetPapers
-import com.kliachenko.papersapp.feature_paper.domain.use_case.PaperUseCases
+import com.kliachenko.papersapp.feature_paper.domain.use_case.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,7 +38,8 @@ object AppModule {
         return PaperUseCases(
             getPapers = GetPapers(repository),
             deletePaper = DeletePaper(repository),
-            addPaper = AddPaper(repository)
+            addPaper = AddPaper(repository),
+            getPaper = GetPaper(repository)
         )
     }
 }
