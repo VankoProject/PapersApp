@@ -1,4 +1,4 @@
-package com.kliachenko.papersapp.feature_paper.presentation.add_edit_paper
+package com.kliachenko.papersapp.feature_paper.presentation.add_edit_paper.components
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -9,7 +9,6 @@ import androidx.lifecycle.viewModelScope
 import com.kliachenko.papersapp.feature_paper.domain.model.InvalidPaperException
 import com.kliachenko.papersapp.feature_paper.domain.model.Paper
 import com.kliachenko.papersapp.feature_paper.domain.use_case.PaperUseCases
-import com.kliachenko.papersapp.feature_paper.presentation.add_edit_paper.components.PaperTextFieldState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -32,7 +31,7 @@ class AddEditPaperViewModel @Inject constructor(
     ))
     val paperContent: State<PaperTextFieldState> = _paperContent
 
-    private val _paperColor = mutableStateOf<Int>(Paper.paperColors.random().toArgb())
+    private val _paperColor = mutableStateOf(Paper.paperColors.random().toArgb())
     val paperColor: State<Int> = _paperColor
 
     private val _eventFlow = MutableSharedFlow<UiEvent>()
@@ -75,14 +74,14 @@ class AddEditPaperViewModel @Inject constructor(
                 )
             }
             is AddEditPaperEvent.EnteredContent -> {
-                _paperContent.value = paperContent.value.copy(
+                _paperContent.value = _paperContent.value.copy(
                     text = event.value
                 )
             }
             is AddEditPaperEvent.ChangeContentFocus -> {
-                _paperContent.value = paperContent.value.copy(
+                _paperContent.value = _paperContent.value.copy(
                     isHintVisible = !event.focusState.isFocused &&
-                            paperContent.value.text.isBlank()
+                            _paperContent.value.text.isBlank()
                 )
             }
             is AddEditPaperEvent.ChangeColor -> {

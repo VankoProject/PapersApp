@@ -88,7 +88,9 @@ fun PaperItem(
         ) {
             Icon(
                 imageVector = Icons.Default.Delete,
-                contentDescription = "Delete paper")
+                contentDescription = "Delete paper",
+                tint = MaterialTheme.colors.onSurface
+            )
         }
     }
 }

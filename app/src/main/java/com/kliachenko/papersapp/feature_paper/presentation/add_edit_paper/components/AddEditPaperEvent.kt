@@ -1,4 +1,4 @@
-package com.kliachenko.papersapp.feature_paper.presentation.add_edit_paper
+package com.kliachenko.papersapp.feature_paper.presentation.add_edit_paper.components
 
 import androidx.compose.ui.focus.FocusState
 

@@ -7,7 +7,6 @@ import com.kliachenko.papersapp.feature_paper.domain.repository.PaperRepository
 class AddPaper(
     private val repository: PaperRepository
 ) {
-
     @Throws(InvalidPaperException::class)
     suspend operator fun invoke(paper: Paper) {
         if (paper.title.isBlank()) {
