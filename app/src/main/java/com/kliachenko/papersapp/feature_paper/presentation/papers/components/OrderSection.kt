@@ -6,7 +6,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.kliachenko.papersapp.feature_paper.domain.util.OrderType
 import com.kliachenko.papersapp.feature_paper.domain.util.PaperOrder
-import com.kliachenko.papersapp.feature_paper.presentation.papers.PapersEvent
 
 
 @Composable
@@ -29,13 +28,13 @@ fun OrderSection(
             Spacer(modifier = Modifier.width(8.dp))
             DefaultRadioButton(
                 text = "Date",
-                selected = paperOrder is PaperOrder.Title,
+                selected = paperOrder is PaperOrder.Date,
                 onSelect = { onOrderChange(PaperOrder.Date(paperOrder.orderType)) }
             )
             Spacer(modifier = Modifier.width(8.dp))
             DefaultRadioButton(
                 text = "Color",
-                selected = paperOrder is PaperOrder.Title,
+                selected = paperOrder is PaperOrder.Color,
                 onSelect = { onOrderChange(PaperOrder.Color(paperOrder.orderType)) }
             )
         }

@@ -72,5 +72,4 @@ class PapersViewModel @Inject constructor(
             }
             .launchIn(viewModelScope)
     }
-
 }

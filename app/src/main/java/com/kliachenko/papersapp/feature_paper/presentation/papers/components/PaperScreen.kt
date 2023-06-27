@@ -18,6 +18,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.kliachenko.papersapp.feature_paper.presentation.papers.PapersEvent
 import com.kliachenko.papersapp.feature_paper.presentation.papers.PapersViewModel
+import com.kliachenko.papersapp.feature_paper.presentation.util.Screen
 import kotlinx.coroutines.launch
 
 @Composable
@@ -33,7 +34,7 @@ fun PaperScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-
+                    navController.navigate(Screen.AddEditPaperScreen.route)
                 },
                 backgroundColor = MaterialTheme.colors.primary
             ) {
@@ -93,7 +94,10 @@ fun PaperScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-                                TODO()
+                                navController.navigate(
+                                    Screen.AddEditPaperScreen.route +
+                                            "?paperId=${paper.id}&paperColor=${paper.color}"
+                                )
                             },
                         onDeleteClick = {
                             viewModel.onEvent(PapersEvent.DeletePaper(paper))
